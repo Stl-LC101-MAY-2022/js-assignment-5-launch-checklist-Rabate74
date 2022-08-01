@@ -1,6 +1,6 @@
 // Write your JavaScript code here!
 
-const { pickPlanet, addDestinationInfo } = require("./scriptHelper");
+// const { pickPlanet, addDestinationInfo } = require("./scriptHelper");
 
 
 
@@ -18,8 +18,13 @@ window.addEventListener("load", function() {
     }).then(function () {
         
  //        // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
-       let pickedPlanet = pickPlanet(listedPlanets);
+       const pickedPlanet = pickPlanet(listedPlanets);
        addDestinationInfo(document, pickedPlanet.name, pickedPlanet.star, pickedPlanet.distance, pickedPlanet.moons, pickedPlanet.imageUrl);
+
+    //    let missionTarget = document.getElementById("missionTarget");
+    //    missionTarget.innerHTML = addDestinationInfo(document, pickedPlanet.name, pickedPlanet.star, pickedPlanet.distance, pickedPlanet.moons, pickedPlanet.imageUrl);
+
+       
     })
 
 
@@ -29,7 +34,7 @@ window.addEventListener("load", function() {
     form.addEventListener("submit", function(){
         event.preventDefault();
         let pilotNameInput = document.querySelector("input[name=pilotName]");
-        console.log("hello"); 
+        // console.log("hello"); 
         
         let copilotNameInput = document.querySelector("input[name=copilotName]");
 
