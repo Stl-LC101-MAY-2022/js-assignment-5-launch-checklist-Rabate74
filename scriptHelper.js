@@ -17,23 +17,84 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 }
 
 function validateInput(testInput) {
-   
+    let results = testInput
+    
+    if (results === String('')) {
+        return 'Empty'
+     }
+     else if (isNaN(results) === true) {
+        return 'Not a Number'
+
+   } else if (isNaN(results) === false) {
+        return 'Is a Number'
+   }
+
+   return results;
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
+  const faultyItems = document.getElementById('faultyItems');
+  const pilotStatus = document.getElementById('pilotStatus');
+  const copilotStatus = document.getElementById('copilotStatus');
+  const fuelStatus = document.getElementById('fuelStatus');
+  const cargoStatus = document.getElementById('cargoStatus');
+  const launchStatus = document.getElementById('launchStatus');
+
+  if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === 'Empty' || validateInput(cargoLevel)=== 'Empty')  {
+   alert('All fields are required')
+  
+} else if (validateInput(pilot) === 'Is a Number' || validateInput(copilot) === 'Is a Number' || validateInput(fuelLevel) === 'Not a Number' || validateInput(cargoLevel) === 'Not a Number') {
+   console.log('a number');
+   alert('Fields must be the correct type')
+} 
+console.log(pilot);
+
+
+
+
+if (fuelLevel <= 9999) {
+   faultyItems.style.visibility = 'visible';
+   fuelStatus.innerHTML = `Fuel level is too low for launch`;
+   launchStatus.style.color = 'red';
+   launchStatus.innerText = `Shuttle not ready for launch`;
+
+} else if (cargoLevel >10000) {
+   faultyItems.style.visibility + 'visible';
+   cargoStatus.innerHTML = `Cargo Mass is too high for launch`;
+   launchStatus.style.color = 'red';
+   launchStatus.innerText = `Shuttle not ready for launch`;
+} else {
+   faultyItems.style.visibility = 'hidden';
+   launchStatus.style.color = "green";
+   launchStatus.innerText = `Shuttle is ready for launch`
+   pilotStatus.innerText = `Pilot ${pilot} is ready for launch`;
+   copilotStatus.innerHTML = `Copilot ${copilot} is ready for launch`;
+   fuelStatus.innerHTML = `Fuel level is acceptable for launch`;
+   
+}
+
+  
+    
+ 
    
 }
 
 async function myFetch() {
-    let planetsReturned;
+        let planetsReturned;
 
-    planetsReturned = await fetch().then( function(response) {
-        });
+    planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
+      return response.json()  
+    });
+        
 
     return planetsReturned;
 }
 
 function pickPlanet(planets) {
+   let x = Math.floor((Math.random() * planets.length));
+   return planets[x];
+   
+   
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;
