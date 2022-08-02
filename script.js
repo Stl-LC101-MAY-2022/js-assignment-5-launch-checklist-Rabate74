@@ -1,10 +1,10 @@
 // Write your JavaScript code here!
 
-// const { pickPlanet, addDestinationInfo } = require("./scriptHelper");
+const { pickPlanet, addDestinationInfo } = require("./scriptHelper");
 
 
 
-// const { formSubmission } = require("./scriptHelper");
+const { formSubmission } = require("./scriptHelper");
 
 
 
