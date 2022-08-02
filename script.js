@@ -1,10 +1,10 @@
 // Write your JavaScript code here!
 
-const { pickPlanet, addDestinationInfo } = require("./scriptHelper");
+// const { pickPlanet, addDestinationInfo } = require("./scriptHelper");
 
 
 
-const { formSubmission } = require("./scriptHelper");
+// const { formSubmission } = require("./scriptHelper");
 
 
 
@@ -38,10 +38,7 @@ window.addEventListener("load", function() {
         let cargoMassInput = document.querySelector("input[name=cargoMass]");
 
         let list = document.getElementById('faultyItems');
-        if(pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInput === "" || cargoMassInput === "") {
-            alert('All fields are required')
-           
-        }
+        
         
         
         formSubmission(document, list, pilotNameInput.value, copilotNameInput.value, fuelLevelInput.value, cargoMassInput.value);
