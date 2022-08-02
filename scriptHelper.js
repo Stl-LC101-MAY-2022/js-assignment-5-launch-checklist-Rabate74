@@ -54,7 +54,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
       copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
       let launchStatus = document.getElementById("launchStatus");
 
-   } if (fuelLevel <= 9999) {
+   } if (fuelLevel < 10000) {
       faultyItems.style.visibility = 'visible';
       fuelStatus.innerHTML = `Fuel level too low for launch`;
       launchStatus.style.color = 'red';
