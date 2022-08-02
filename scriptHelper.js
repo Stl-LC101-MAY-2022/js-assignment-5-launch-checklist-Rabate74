@@ -54,24 +54,28 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
       copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
       let launchStatus = document.getElementById("launchStatus");
 
-   if (fuelLevel <= 9999) {
+   } if (fuelLevel <= 9999) {
       faultyItems.style.visibility = 'visible';
-      fuelStatus.innerHTML = `Fuel level is too low for launch`;
+      fuelStatus.innerHTML = `Fuel level too low for launch`;
       launchStatus.style.color = 'red';
       launchStatus.innerText = `Shuttle not ready for launch`;
+      
    
-   } else if (cargoLevel >10000) {
+   } 
+   if (cargoLevel > 10000) {
       faultyItems.style.visibility = 'visible';
-      cargoStatus.innerHTML = `Cargo Mass is too high for launch`;
+      cargoStatus.innerHTML = `Cargo Mass too high for launch`;
       launchStatus.style.color = 'red';
       launchStatus.innerText = `Shuttle not ready for launch`;
-   } else {
+   }
+    else {
       faultyItems.style.visibility = 'hidden';
       launchStatus.style.color = "green";
       launchStatus.innerText = `Shuttle is ready for launch`
       pilotStatus.innerText = `Pilot ${pilot} is ready for launch`;
       copilotStatus.innerHTML = `Copilot ${copilot} is ready for launch`;
-      fuelStatus.innerHTML = `Fuel level is acceptable for launch`;
+      fuelStatus.innerHTML = `Fuel level high enough for launch`;
+      cargoStatus.innerHTML = `Cargo Mass low enough for launch`;
       
    }
 }
@@ -86,7 +90,7 @@ console.log(pilot);
     
  
    
-}
+
 
 async function myFetch() {
         let planetsReturned;
