@@ -44,14 +44,15 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
   if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === 'Empty' || validateInput(cargoLevel)=== 'Empty')  {
    alert('All fields are required')
       launchStatus.innerText = `Awaiting Information Before Launch`;
+      launchStatus.style.color = "black"
       list.style.visibility = 'hidden'
-      launchStatus.sytle.color = ""
+      
   
 } else if (validateInput(pilot) === 'Is a Number' || validateInput(copilot) === 'Is a Number' || validateInput(fuelLevel) === 'Not a Number' || validateInput(cargoLevel) === 'Not a Number') {
    console.log('a number');
    alert('Fields must be the correct type')
    launchStatus.innerText = `Awaiting Information Before Launch`
-   launchStatus.sytle.color = ""
+   launchStatus.style.color = "black"
    list.style.visibility = "hidden"
 } 
 else {
@@ -100,6 +101,7 @@ else {
             cargoStatus.innerHTML = `Cargo mass low enough for launch`;
             faultyItems.style.visibility = 'hidden';
    } 
+   
 }
 }
 
